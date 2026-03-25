@@ -1,0 +1,11 @@
+services:
+  - type: cron
+    name: dbt-cron
+    schedule: "* * * * *"
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "dbt run && dbt test"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.1
+
